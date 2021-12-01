@@ -22,7 +22,11 @@ public class Archer1Script : MonoBehaviour
 
     public string unitName;
 
-    public GameObject projectile;
+    public float projectileSpeed;
+
+    public float arcHeight;
+
+    public Sprite projectileSprite;
 
 
     void Awake()
@@ -32,14 +36,16 @@ public class Archer1Script : MonoBehaviour
     }
     void Init()
     {
-            unitscript._hp = hp;
-            unitscript._moveSpeed = moveSpeed;
-            unitscript._attackDamage = attackDamage;
-            unitscript._attackSpeed = attackSpeed;
-            unitscript._attackRange = attackRange;
-            unitscript._unitIcon = unitIcon;
-            unitscript._unitPrice = unitPrice;
-            unitscript._unitName = unitName;
-            unitscript._projectile = projectile;
+        unitscript._hp = hp;
+        unitscript._moveSpeed = moveSpeed;
+        unitscript._attackDamage = attackDamage;
+        unitscript._attackSpeed = attackSpeed;
+        unitscript._attackRange = attackRange;
+        unitscript._unitIcon = unitIcon;
+        unitscript._unitPrice = unitPrice;
+        unitscript._unitName = unitName;
+        unitscript._projectileSpeed = projectileSpeed;
+        unitscript._arcHeight = arcHeight;
+        unitscript._projectileSprite = projectileSprite;
     }  
 }

@@ -25,7 +25,11 @@ public class UnitScript : MonoBehaviour
 
     public string _unitName;
 
-    public GameObject _projectile;
+    public float _projectileSpeed;
+
+    public float _arcHeight;
+
+    public Sprite _projectileSprite;
 
     public List<AudioClip> audioList = new List<AudioClip>();
 
@@ -252,7 +256,36 @@ public class UnitScript : MonoBehaviour
             case AttackType.splashMelee:
                 break;
             case AttackType.range:
-
+                if (faction == "P1")
+                {
+                    Debug.DrawRay(ray.origin, ray.direction * _attackRange, Color.blue, 0.3f);
+                    rayHit = Physics2D.Raycast(ray.origin, ray.direction, _attackRange, LayerMask.GetMask("P2"));
+                    if (rayHit.collider != null)
+                    {
+                        var projectile = ObjectPoolScript.GetObject();
+                        projectile.gameObject.transform.position = transform.position; 
+                        projectile.Launch(rayHit.collider.gameObject, _attackDamage, _projectileSpeed, _arcHeight, _projectileSprite, "P1");
+                    }
+                    else
+                    {
+                        SetState(UnitState.run);
+                    }
+                }
+                else
+                {
+                    Debug.DrawRay(ray.origin, ray.direction * _attackRange, Color.blue, 0.3f);
+                    rayHit = Physics2D.Raycast(ray.origin, ray.direction, _attackRange, LayerMask.GetMask("P1"));
+                    if (rayHit.collider != null)
+                    {
+                        var projectile = ObjectPoolScript.GetObject();
+                        projectile.gameObject.transform.position = transform.position;
+                        projectile.Launch(rayHit.collider.gameObject, _attackDamage, _projectileSpeed, _arcHeight, _projectileSprite, "P2");
+                    }
+                    else
+                    {
+                        SetState(UnitState.run);
+                    }
+                }
                 break;
         }
      
