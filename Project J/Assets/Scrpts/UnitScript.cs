@@ -216,7 +216,7 @@ public class UnitScript : MonoBehaviour
         }
     }
 
-    void DoAttack()
+    public virtual void DoAttack()
     {
         GameObject target;
         RaycastHit2D rayHit;        
