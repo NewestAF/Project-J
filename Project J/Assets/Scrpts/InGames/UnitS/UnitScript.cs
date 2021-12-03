@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class UnitScript : MonoBehaviour
 {
+    #region Stat
     public float _hp;
 
     public float _moveSpeed;
@@ -28,6 +29,7 @@ public class UnitScript : MonoBehaviour
     public float _projectileSpeed;
 
     public float _arcHeight;
+    #endregion Stat
 
     public Sprite _projectileSprite;
 

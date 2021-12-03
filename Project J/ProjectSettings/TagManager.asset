@@ -6,6 +6,10 @@ TagManager:
   tags:
   - P1
   - P2
+  - Loading
+  - Fade
+  - FadeIn
+  - FadeOut
   layers:
   - Default
   - TransparentFX
