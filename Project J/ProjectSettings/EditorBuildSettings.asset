@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scene/0. Login.unity
     guid: ee86c40b51c56ea47969b65b5b63d264
+  - enabled: 1
+    path: Assets/Scene/1. Lobby.unity
+    guid: 01a0402eb69a3bc41ab3a816552cb4a1
+  - enabled: 1
+    path: Assets/Scene/4. InGame.unity
+    guid: 4ad3c042e46ae6642b540cd41b921316
   m_configObjects: {}

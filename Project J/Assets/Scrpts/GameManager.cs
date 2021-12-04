@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
 
     #region Actions-Events
-    public static event Action OnRobby = delegate { };
+    public static event Action OnLobby = delegate { };
     public static event Action OnGameReady = delegate { };
     //public static event Action OnGameStart = delegate { };
     public static event Action InGame = delegate { };
@@ -90,6 +90,18 @@ public class GameManager : MonoBehaviour
         // OnLogin();
         // ChangeScene(LOGIN);
     }
+    private void Lobby(Action<bool> func)
+    {    
+        if (func != null)
+        {
+            ChangeSceneAsync(LOBBY, func);
+        }
+        else
+        {
+            ChangeScene(LOBBY);
+        }
+        OnLobby();
+    }
     private void MatchLobby(Action<bool> func)
     {
         if (func != null)
@@ -157,6 +169,9 @@ public class GameManager : MonoBehaviour
         {
             case GameState.Login:
                 Login();
+                break;
+            case GameState.Lobby:
+                Lobby(func);
                 break;
             case GameState.MatchLobby:
                 MatchLobby(func);
