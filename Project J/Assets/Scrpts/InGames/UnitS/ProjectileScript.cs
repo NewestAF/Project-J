@@ -35,7 +35,7 @@ public class ProjectileScript : MonoBehaviour
     }
     IEnumerator LifeTimer()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         ObjectPoolScript.ReturnObject(this);
     }
 

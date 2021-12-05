@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,11 +32,11 @@ public class UnitScript : MonoBehaviour
     public float _arcHeight;
     #endregion Stat
 
+
     public Sprite _projectileSprite;
-
-    public List<AudioClip> audioList = new List<AudioClip>();
-
+    public AudioClip[] audioList;
     
+    public static event Action DoSpecialAttack = delegate { };
 
 
     [SerializeField]
@@ -67,7 +68,9 @@ public class UnitScript : MonoBehaviour
 
         splashMelee,
 
-        range
+        range,
+
+        special
     }
 
     public UnitState _unitState;
@@ -82,6 +85,7 @@ public class UnitScript : MonoBehaviour
     void Awake()
     {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
         SetState(UnitState.run);
 
@@ -289,6 +293,9 @@ public class UnitScript : MonoBehaviour
                     }
                 }
                 break;
+            case AttackType.special:
+                DoSpecialAttack();
+                break;
         }
      
     }
@@ -296,6 +303,9 @@ public class UnitScript : MonoBehaviour
     void HitAttack(float f)
     {
         _hp -= f;
+        PlaySound("Hit");
+        var eff = HitEffectPool.GetObject();
+        eff.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, -3);
         Debug.Log(_hp);
         if (_hp <= 0)
         {
@@ -314,13 +324,13 @@ public class UnitScript : MonoBehaviour
         switch (s)
         {
             case "Hit":
-                audioSource.clip = audioList[0];
+                audioSource.PlayOneShot(audioList[0]);
                 break;
             case "Die":
-                audioSource.clip = audioList[1];
+                audioSource.PlayOneShot(audioList[1]);
                 break;
             case "Shoot":
-                audioSource.clip = audioList[2];
+                audioSource.PlayOneShot(audioList[2]);
                 break;
         }
 

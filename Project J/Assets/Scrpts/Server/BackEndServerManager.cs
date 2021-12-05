@@ -170,7 +170,6 @@ public class BackEndServerManager : MonoBehaviour
             {
                 Debug.Log("커스텀 로그인 성공");
                 loginSuccessFunc = func;
-                func(true, null);
 
                 OnPrevBackendAuthorized();
                 return;
@@ -192,7 +191,6 @@ public class BackEndServerManager : MonoBehaviour
             {
                 Debug.Log("커스텀 회원가입 성공");
                 loginSuccessFunc = func;
-                func(true, null);
 
                 OnPrevBackendAuthorized();
                 return;
