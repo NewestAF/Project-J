@@ -27,6 +27,8 @@ public class UnitScript : MonoBehaviour
 
     public string _unitName;
 
+    public int _unitTraingTime;
+
     public float _projectileSpeed;
 
     public float _arcHeight;

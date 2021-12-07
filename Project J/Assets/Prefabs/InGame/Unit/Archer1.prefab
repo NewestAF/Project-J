@@ -153,6 +153,7 @@ MonoBehaviour:
   _unitIcon: {fileID: 21300000, guid: 46997a9d8510dd640830eff5156e4369, type: 3}
   _unitPrice: 50
   _unitName: Archer1
+  _unitTraingTime: 5
   _projectileSpeed: 0
   _arcHeight: 0
   _projectileSprite: {fileID: 0}
@@ -180,6 +181,7 @@ MonoBehaviour:
   unitIcon: {fileID: 21300000, guid: 46997a9d8510dd640830eff5156e4369, type: 3}
   unitPrice: 50
   unitName: Archer1
+  unitTrainingTime: 5
   projectileSpeed: 7.5
   arcHeight: 1.5
   projectileSprite: {fileID: 21300000, guid: ba5bac557c4e8ae409a2eb576c7af23b, type: 3}

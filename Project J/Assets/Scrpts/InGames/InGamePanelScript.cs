@@ -71,8 +71,7 @@ public class InGamePanelScript : MonoBehaviour
         {
             Debug.Log(Units[i].GetComponent<UnitScript>()._unitName + " bought");
             moneyCurrent -= Units[i].GetComponent<UnitScript>()._unitPrice;
-            CastleScript castle = GameObject.Find("Castle P1").GetComponent<CastleScript>();
-            castle.SummonUnit(Units[i]);
+            UnitQueue.GetInstance().EnqueueUnit(Units[i].GetComponent<UnitScript>());
         }
         else
         {

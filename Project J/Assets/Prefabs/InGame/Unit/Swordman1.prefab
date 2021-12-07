@@ -153,6 +153,7 @@ MonoBehaviour:
   _unitIcon: {fileID: 21300000, guid: c247203fe82fd5849ad5a972f9e2db4a, type: 3}
   _unitPrice: 50
   _unitName: SwordMan
+  _unitTraingTime: 3
   _projectileSpeed: 0
   _arcHeight: 0
   _projectileSprite: {fileID: 0}
@@ -180,3 +181,4 @@ MonoBehaviour:
   unitIcon: {fileID: 21300000, guid: c247203fe82fd5849ad5a972f9e2db4a, type: 3}
   unitPrice: 50
   unitName: SwordMan
+  unitTrainingTime: 3

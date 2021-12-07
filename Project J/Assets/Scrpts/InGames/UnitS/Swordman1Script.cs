@@ -23,6 +23,8 @@ public class Swordman1Script : MonoBehaviour
 
     public string unitName;
 
+    public int unitTrainingTime;
+
 
     void Awake()
     {
@@ -40,6 +42,7 @@ public class Swordman1Script : MonoBehaviour
         unitscript._unitIcon = unitIcon;
         unitscript._unitPrice = unitPrice;
         unitscript._unitName = unitName;
+        unitscript._unitTraingTime = unitTrainingTime;
     }
 
 }

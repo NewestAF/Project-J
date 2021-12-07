@@ -22,6 +22,8 @@ public class Archer1Script : MonoBehaviour
 
     public string unitName;
 
+    public int unitTrainingTime;
+
     public float projectileSpeed;
 
     public float arcHeight;
@@ -44,6 +46,7 @@ public class Archer1Script : MonoBehaviour
         unitscript._unitIcon = unitIcon;
         unitscript._unitPrice = unitPrice;
         unitscript._unitName = unitName;
+        unitscript._unitTraingTime = unitTrainingTime;
         unitscript._projectileSpeed = projectileSpeed;
         unitscript._arcHeight = arcHeight;
         unitscript._projectileSprite = projectileSprite;
