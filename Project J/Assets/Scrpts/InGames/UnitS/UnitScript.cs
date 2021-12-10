@@ -6,9 +6,7 @@ using UnityEngine;
 
 public class UnitScript : MonoBehaviour
 {
-    [SerializeField]
-    private UnitData unitData;
-
+    public UnitData unitData;
 
     #region Var
     #region Stat
@@ -46,6 +44,7 @@ public class UnitScript : MonoBehaviour
     public static event Action DoSpecialAttack = delegate { };
 
     Animator anim;
+    BoxCollider2D box2d;
 
     bool isAttacking = false;
 
@@ -77,21 +76,6 @@ public class UnitScript : MonoBehaviour
 
         special
     }
-    public enum _AnimationList
-    {
-        idle,
-
-        death,
-
-        run,
-
-        attack,
-
-        stun,
-
-        special
-    }
-
 
     public UnitState _unitState;
     public AttackType _attackType;
@@ -113,8 +97,7 @@ public class UnitScript : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-
-        SetState(UnitState.run);
+        box2d = GetComponent<BoxCollider2D>();
 
         if (this.tag == "P1")
         {
@@ -125,9 +108,29 @@ public class UnitScript : MonoBehaviour
         {
             faction = "P2";
             transform.localScale = new Vector3(1, 1, 1);
-        }
+        } 
+    }
 
-        
+    public void InitData()
+    {
+        if (unitData != null)
+        {
+            anim.runtimeAnimatorController = unitData.OverrideController;
+            _hp = unitData.Hp;
+            _moveSpeed = unitData.MoveSpeed;
+            _attackDamage = unitData.AttackDamage;
+            _attackSpeed = unitData.AttackSpeed;
+            _attackRange = unitData.AttackRange;
+            _attackType = (AttackType)unitData.AttackType;
+            box2d.size = unitData.ColliderSize;
+            if (_attackType == AttackType.range)
+            {
+                _projectileSpeed = unitData.ProjectileSpeed;
+                _arcHeight = unitData.ArcHeight;
+                _projectileSprite = unitData.ProjectileSprite;
+            }
+        }
+           
     }
 
     void Update()

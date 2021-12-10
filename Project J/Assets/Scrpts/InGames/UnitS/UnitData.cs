@@ -55,7 +55,9 @@ public class UnitData : ScriptableObject
 
     #region ETC
     [SerializeField]
-    private AnimationClip[] animationList;
+    private AnimatorOverrideController overrideController;
+    [SerializeField]
+    private Vector2 colliderSize;
     #endregion ETC
 
     // Get 접근자 함수
@@ -72,7 +74,7 @@ public class UnitData : ScriptableObject
     public float AttackDamage { get { return attackDamage; } }
     public float AttackSpeed { get { return attackSpeed; } }
     public float AttackRange { get { return attackRange; } }
-    public _AttackType AttackType { get { return attackType; } }
+    public int AttackType { get { return (int)attackType; } }
     #endregion Stat
 
     #region Range Stat
@@ -82,6 +84,8 @@ public class UnitData : ScriptableObject
     #endregion Range Stat
 
     #region ETC
-    public AnimationClip[] AnimationList { get { return animationList; } }
+    public AnimatorOverrideController OverrideController { get { return overrideController; } }
+    public Vector2 ColliderSize { get { return colliderSize; } }
     #endregion ETC
+
 }

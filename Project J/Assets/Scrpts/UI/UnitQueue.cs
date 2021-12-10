@@ -9,8 +9,8 @@ public class UnitQueue : MonoBehaviour
 
     bool isTraining = false;
 
-    Queue<UnitScript> unitTrainingQueue = new Queue<UnitScript>();
-    UnitScript currentTrainingUnit;
+    Queue<UnitData> unitTrainingQueue = new Queue<UnitData>();
+    UnitData currentTrainingUnit;
 
     float trainingTime;
     float currentTrainingTime;
@@ -83,7 +83,7 @@ public class UnitQueue : MonoBehaviour
         isTraining = true;
         currentTrainingUnit = unitTrainingQueue.Dequeue();
 
-        trainingTime = currentTrainingUnit._unitTraingTime;
+        trainingTime = currentTrainingUnit.UnitTrainingTime;
         currentTrainingTime = 0;
         sliderGauge.maxValue = trainingTime;
 
@@ -106,14 +106,14 @@ public class UnitQueue : MonoBehaviour
 
     }
 
-    public void EnqueueUnit(UnitScript _unitScirpt)
+    public void EnqueueUnit(UnitData _unitData)
     {
         if (unitTrainingQueue.Count < 4)
         {
-            unitTrainingQueue.Enqueue(_unitScirpt);
+            unitTrainingQueue.Enqueue(_unitData);
 
             image_trainingUnits[unitTrainingQueue.Count].gameObject.SetActive(true);
-            image_trainingUnits[unitTrainingQueue.Count].sprite = _unitScirpt._unitIcon;
+            image_trainingUnits[unitTrainingQueue.Count].sprite = _unitData.UnitIcon;
         }
     }
 
@@ -122,7 +122,7 @@ public class UnitQueue : MonoBehaviour
         isTraining = false;
         image_trainingUnits[0].gameObject.SetActive(false);
 
-        castle.SummonUnit(currentTrainingUnit.gameObject);
+        castle.SummonUnit(currentTrainingUnit);
     }
 
 

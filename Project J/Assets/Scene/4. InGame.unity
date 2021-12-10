@@ -308,6 +308,7 @@ MonoBehaviour:
   summonPos: {x: 0, y: 0, z: 0}
   spawnPoint: {fileID: 0}
   randomY: 0
+  UnitPrefab: {fileID: 0}
 --- !u!61 &212113928
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -738,8 +739,8 @@ MonoBehaviour:
   moneyCurrent: 0
   moneyIncome: 0
   Units:
-  - {fileID: 2929402418283366120, guid: ddd70440a673e6846a9fb1360098fd5b, type: 3}
-  - {fileID: 1406908554788035100, guid: 77e5b540903a29a4891e65d614cafb7b, type: 3}
+  - {fileID: 11400000, guid: b071d7849efd0024397f777f95af6801, type: 2}
+  - {fileID: 11400000, guid: 7d6e98b7893e0c44d8dd83a197e0a75f, type: 2}
   buttonPrefab: {fileID: 3796803236137498291, guid: 826d7abf4cbee05499c18f98b5c1e3e7, type: 3}
   moneyText: {fileID: 0}
   unitSummonGruops: {fileID: 214286959}
@@ -827,8 +828,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: 1000
   summonPos: {x: 0, y: 0, z: 0}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 1966711840}
   randomY: 0
+  UnitPrefab: {fileID: 5944948648783334636, guid: c08418dadf9d62047b82a1ae86c078db, type: 3}
 --- !u!61 &585443014
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1302,8 +1304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 363c5b4b73129244da6d6318c38e2ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitData: {fileID: 0}
-  _hp: 0
+  unitData: {fileID: 11400000, guid: 022ad79e162181148a2fcd93739587e4, type: 2}
+  _hp: 100000
   _moveSpeed: 0
   _attackDamage: 0
   _attackSpeed: 0
@@ -1339,7 +1341,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.6979167, y: 1.09375}
-    newSize: {x: 0.67, y: 1.05}
+    newSize: {x: 0.6979167, y: 1.09375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1357,7 +1359,7 @@ Animator:
   m_GameObject: {fileID: 791426648}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 141bffe46ab771a489372dff2a2dcef5, type: 2}
+  m_Controller: {fileID: 22100000, guid: 19d8bff0256c06547b0b11cadee1ac22, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1411,7 +1413,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.67, y: 1.05}
+  m_Size: {x: 0.6979167, y: 1.09375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

@@ -14,8 +14,8 @@ public class InGamePanelScript : MonoBehaviour
     public int moneyIncome;
 
     float _incomeTimer;
-       
-    public GameObject[] Units;
+
+    public UnitData[] Units;
     public GameObject buttonPrefab;
     public Text moneyText;
     public GameObject unitSummonGruops;
@@ -31,8 +31,8 @@ public class InGamePanelScript : MonoBehaviour
         {
             GameObject newbutton = Instantiate(buttonPrefab, unitSummonGruops.transform);
             Button newButton_ = newbutton.GetComponent<Button>();
-            newButton_.image.sprite = Units[i].GetComponent<UnitScript>()._unitIcon;
-            newbutton.transform.GetChild(0).GetComponent<Text>().text = Units[i].GetComponent<UnitScript>()._unitPrice.ToString();
+            newButton_.image.sprite = Units[i].UnitIcon;
+            newbutton.transform.GetChild(0).GetComponent<Text>().text = Units[i].UnitPrice.ToString();
                               //UnitPrice
             int index = i;
             newButton_.onClick.AddListener(delegate { BuyUnit(index); });
@@ -67,11 +67,11 @@ public class InGamePanelScript : MonoBehaviour
 
     public void BuyUnit(int i)
     {
-        if (Units[i].GetComponent<UnitScript>()._unitPrice <= moneyCurrent)
+        if (Units[i].UnitPrice <= moneyCurrent)
         {
-            Debug.Log(Units[i].GetComponent<UnitScript>()._unitName + " bought");
-            moneyCurrent -= Units[i].GetComponent<UnitScript>()._unitPrice;
-            UnitQueue.GetInstance().EnqueueUnit(Units[i].GetComponent<UnitScript>());
+            Debug.Log(Units[i].UnitName + " bought");
+            moneyCurrent -= Units[i].UnitPrice;
+            UnitQueue.GetInstance().EnqueueUnit(Units[i]);
         }
         else
         {

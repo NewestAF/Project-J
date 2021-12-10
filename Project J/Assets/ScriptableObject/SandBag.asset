@@ -25,4 +25,5 @@ MonoBehaviour:
   projectileSpeed: 0
   arcHeight: 0
   projectileSprite: {fileID: 0}
-  animationList: []
+  overrideController: {fileID: 22100000, guid: 19d8bff0256c06547b0b11cadee1ac22, type: 2}
+  colliderSize: {x: 0.67, y: 1.05}
