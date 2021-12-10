@@ -6,6 +6,11 @@ using UnityEngine;
 
 public class UnitScript : MonoBehaviour
 {
+    [SerializeField]
+    private UnitData unitData;
+
+
+    #region Var
     #region Stat
     public float _hp;
 
@@ -40,8 +45,6 @@ public class UnitScript : MonoBehaviour
     
     public static event Action DoSpecialAttack = delegate { };
 
-
-    [SerializeField]
     Animator anim;
 
     bool isAttacking = false;
@@ -74,9 +77,26 @@ public class UnitScript : MonoBehaviour
 
         special
     }
+    public enum _AnimationList
+    {
+        idle,
+
+        death,
+
+        run,
+
+        attack,
+
+        stun,
+
+        special
+    }
+
 
     public UnitState _unitState;
     public AttackType _attackType;
+    #endregion Var
+
 
     void Start()
     {
@@ -86,12 +106,17 @@ public class UnitScript : MonoBehaviour
 
     void Awake()
     {
+        Init();
+    }
+
+    void Init()
+    {
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
 
         SetState(UnitState.run);
 
-        if (this.tag == "P1" )
+        if (this.tag == "P1")
         {
             faction = "P1";
             transform.localScale = new Vector3(-1, 1, 1);
@@ -101,6 +126,8 @@ public class UnitScript : MonoBehaviour
             faction = "P2";
             transform.localScale = new Vector3(1, 1, 1);
         }
+
+        
     }
 
     void Update()
